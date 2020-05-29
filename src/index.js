@@ -176,10 +176,10 @@ class Game extends React.Component {
 }
 
 // ==========================
-ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-)
+// ReactDOM.render(
+//     <Game />,
+//     document.getElementById('root')
+// )
 
 function calculateWinner(squares) {
     const lines = [
@@ -200,3 +200,76 @@ function calculateWinner(squares) {
     }
     return null;
 }
+
+// =============
+//const element = <h1>Hello, world</h1>;
+
+
+// function tick() {
+//     const element = (
+//         <div>
+//             <h1>Hello, world!</h1>
+//             <h2>It is {new Date().toLocaleTimeString()}.</h2>
+//         </div>
+//     );
+//     ReactDOM.render(element, document.getElementById('root'));
+// }
+// setInterval(tick, 1000);
+
+// function component
+
+function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>
+}
+
+// const element = <Welcome name="Sara" />;
+
+// function App() {
+//     return (
+//         <div>
+//             <Welcome name="Sara" />
+//             <Welcome name="Cara" />
+//             <Welcome name="Edite" />
+//         </div>
+//     );
+// }
+
+function Avatar(props) {
+    return (
+        <img className="Avatar"
+            src={props.user.avatarUrl}
+            alt={props.user.name}
+        />
+    )
+}
+
+function UserInfo(props) {
+    return (
+        <div className="UserInfo">
+            <Avatar user={props.user} />
+            <div className="UserInfo-name">
+            {props.user.name}
+            </div>
+        </div>
+    )
+}
+
+function Comment(props) {
+    return (
+        <div className="Comment">
+            <UserInfo user={props.author} />
+            <div className="Comment-text">
+                {props.text}
+            </div>
+            <div className="Comment-date">
+                {formatDate(props.date)}
+            </div>
+        </div>
+    )
+}
+
+ReactDOM.render(
+    // element, 
+    // <App />,
+    document.getElementById('root')
+);
